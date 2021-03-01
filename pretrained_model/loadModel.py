@@ -1,7 +1,7 @@
-from tensorflow.keras import models
 from pickle import load
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+from tensorflow.keras import models
 
 def get_model():
     model_name = "NSGD-09_h5"

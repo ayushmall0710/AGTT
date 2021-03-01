@@ -25,6 +25,9 @@ def get_chord(Y):
     if len(notes) != 0:
         notes = get_unique(notes)
         chord = pychord.analyzer.note_to_chord(notes)
+        if len(chord) > 0:
+            print(chord)
+            chord = [i.chord for i in chord]
     
     return chord
     

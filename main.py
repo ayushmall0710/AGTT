@@ -5,9 +5,10 @@ from preprocess.chord_names import get_chord
 import numpy as np
 from sys import argv
 import os
+import json
+from pathlib import Path
 import warnings
 warnings.filterwarnings("ignore")
-from pathlib import Path
 
 MODEL, NORMALISER = get_model()
 
@@ -17,12 +18,22 @@ def run(audio_file, model, normaliser):
     Y = model.predict(X)
     Y = np.array(process_tab_model_out(Y))
     print("Final Tablature!\n\n")
+    results = {"results":[]}
     for i in range(Y.shape[0]):
+        tab = {}
         if i%4==0:
             print("\n" + "-"*50)
-        print(times[i])
-        print(Y[i], get_chord(Y[i]))
+        tab["time"] = times[i]
+        tab["tab"] = Y[i].tolist()
+        tab["chord"] = get_chord(Y[i])
+        print(tab["time"])
+        print(Y[i], tab["chord"])
+        results["results"].append(tab)
+    return results
 
 audio_file = Path(argv[1])
-run(audio_file, model = MODEL, normaliser = NORMALISER)
-
+output_path = "output\\output.json"
+results = run(audio_file, model = MODEL, normaliser = NORMALISER)
+with open(output_path, "w") as outfile:  
+        json.dump(results, outfile)
+print("Results saved at: ", output_path)

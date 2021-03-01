@@ -6,7 +6,7 @@ Example usage:
 
 Returns:
 JSON file with structure:
-```json
+```yaml
 {
     "time": time of the beat in seconds,
     "tab": list of size 6x19 i.e. 6 strings X 1 open position + 18 fret positions,

@@ -17,7 +17,7 @@ def run(audio_file, model, normaliser):
     X, times = pre_process_audio(audio_file, normaliser)
     print("Predicting Tablature....")
     Y = model.predict(X)
-    Y = np.array(process_tab_model_out(Y))
+    Y, Positions = process_tab_model_out(Y)
     print("Final Tablature!\n\n")
     results = {"results":[]}
     for i in range(Y.shape[0]):
@@ -25,10 +25,11 @@ def run(audio_file, model, normaliser):
         tab["time"] = times[i]
         tab["tab"] = Y[i].tolist()
         tab["chord"] = get_chord(Y[i])
-        # print(tab["time"])
-        # print(Y[i], tab["chord"])
-        # if i%4==0:
-        #     print("\n" + "-"*50)
+        tab["positions"] = Positions[i]
+        print(tab["time"])
+        print(Y[i], tab["chord"], tab["positions"])
+        if i%4==0:
+            print("\n" + "-"*50)
         results["results"].append(tab)
     return results
 

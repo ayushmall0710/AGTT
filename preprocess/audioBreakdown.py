@@ -13,7 +13,6 @@ def beats(y, sr):
 
 def pre_process_audio(audio_file, normaliser, sampling_dur=0.2):
     # Load audio and define paths
-    print(audio_file)
     duration = librosa.get_duration(filename = audio_file)
     print("Loading Audio File....")
     data, _ = librosa.load(audio_file)

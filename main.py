@@ -7,6 +7,7 @@ from sys import argv
 import os
 import warnings
 warnings.filterwarnings("ignore")
+from pathlib import Path
 
 MODEL, NORMALISER = get_model()
 
@@ -22,8 +23,6 @@ def run(audio_file, model, normaliser):
         print(times[i])
         print(Y[i], get_chord(Y[i]))
 
-
-audio_file = "C:\\Users\\ss380\\Downloads\\IDMT-SMT-GUITAR_V2\\dataset4\\acoustic_pickup\\slow\\pop\\audio\\pop_1_130BPM.wav"
-print(audio_file)
+audio_file = Path(argv[1])
 run(audio_file, model = MODEL, normaliser = NORMALISER)
 

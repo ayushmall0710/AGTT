@@ -1,5 +1,5 @@
 from preprocess.audioBreakdown import pre_process_audio
-from preprocess.tablature import process_tab_model_out
+from postprocess.tablature import process_tab_model_out
 from pretrained_model.loadModel import get_model
 from preprocess.chord_names import get_chord
 import numpy as np

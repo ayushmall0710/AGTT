@@ -14,3 +14,4 @@ JSON file with structure:
     "position": str of fret numbers from e to E string
 }
 ```
+..

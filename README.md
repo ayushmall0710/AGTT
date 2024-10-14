@@ -27,25 +27,6 @@ This project is focused on generating guitar tablature directly from audio files
    - **File Upload**: Drag and drop or browse to upload the audio file.
    - **Audio Player**: An audio player that displays chord images and tablature while the audio plays.
 
-## File Structure
-
-```
-├── models/
-│   ├── model.h5          # Trained CNN model file
-│   └── normalizer.pkl     # Normalization object used for preprocessing input data
-├── app/
-│   ├── main.py           # FastAPI application script
-│   ├── predict.py        # Model prediction script
-│   ├── preprocess.py     # Preprocessing functions (beat tracking, spectrogram creation)
-│   ├── utils.py          # Utility functions for JSON output, chord image generation
-│   └── requirements.txt  # List of dependencies
-├── frontend/
-│   ├── index.html        # Frontend HTML page
-│   ├── app.js            # JavaScript for handling file uploads, displaying images
-│   └── styles.css        # Styling for the frontend
-└── README.md             # Project documentation
-```
-
 ## Installation
 
 1. Clone the repository:

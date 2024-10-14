@@ -19,11 +19,11 @@ This project is focused on generating guitar tablature directly from audio files
    - A **Multi-task CNN** with six outputs for each guitar string, predicting the fret positions.
    - Trained on the **GuitarSet** dataset and additional labeled chord datasets.
    
-3. **Backend**:
+3. **Backend**: - Not included in this codebase
    - The backend uses FastAPI to expose the model via a REST API.
    - The API allows uploading audio files and returns a JSON response with the tablature data.
 
-4. **Frontend**:
+4. **Frontend**: - Not included in this codebase
    - **File Upload**: Drag and drop or browse to upload the audio file.
    - **Audio Player**: An audio player that displays chord images and tablature while the audio plays.
 
@@ -51,7 +51,7 @@ This project is focused on generating guitar tablature directly from audio files
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/agtt.git
+   git clone https://github.com/ayushmall0710/AGTT.git
    cd agtt
    ```
 
@@ -61,7 +61,7 @@ This project is focused on generating guitar tablature directly from audio files
    pip install -r app/requirements.txt
    ```
 
-3. Run the application:
+3. Run the application: - Not included in this codebase
 
    ```bash
    uvicorn app.main:app --reload
@@ -72,10 +72,22 @@ This project is focused on generating guitar tablature directly from audio files
 ## Usage
 
 ### Offline
+- **Run**: command to run in the local directory
 > python main.py "<audio_path>" "<output_path>(default:output\output.json)"
+- **Response**: A JSON object containing the tablature data:
+  - String/fret combinations
+  - Timestamps for each chord
+```yaml
+{
+    "time": time of the beat in seconds,
+    "tab": list of size 6x19 i.e. 6 strings X 1 open position + 18 fret positions,
+    "chord": list of chord names (str) corresponding to the notes played,
+    "position": str of fret numbers from e to E string
+}
+```
 
-### REST API
-
+### REST API 
+Not included in this codebase
 - **Endpoint**: `/predict`
 - **Method**: POST
 - **Request**: Upload an audio file in `.wav` format.
@@ -92,7 +104,7 @@ This project is focused on generating guitar tablature directly from audio files
 ```
 
 ### Frontend
-
+Not included in this codebase
 - Access the application at `http://127.0.0.1:8000`.
 - Upload a `.wav` file to receive the tablature output.
 - View the chord diagrams synchronized with the audio playback.
